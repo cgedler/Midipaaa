@@ -1,0 +1,58 @@
+{% extends 'base/base_pdf.html' %}
+{% block page-title %} Módulo : {{ module_title }}{% endblock %}
+{% block content-title %}<h1>Reporte - {{ section_title }}</h1>{% endblock %}
+{% block content %}
+{% for Beneficiado in context_pdf %}
+<label for="id_beneficiado"><strong>Cédula : </strong></label>
+{{ Beneficiado.id_beneficiado }}
+<p></p>
+<label for="nombres"><strong>Nombres : </strong></label>
+{{ Beneficiado.primer_nombre }} {{ Beneficiado.segundo_nombre }}
+<p></p>
+<label for="apellidos"><strong>Apellidos : </strong></label>
+{{ Beneficiado.primer_apellido }} {{ Beneficiado.segundo_apellido }}
+<p></p>
+<label for="sexo"><strong>Sexo : </strong></label>
+{{ Beneficiado.get_sexo_display }}
+<p></p>
+<label for="nacionalidad"><strong>Nacionalidad : </strong></label>
+{{ Beneficiado.get_nacionalidad_display }}
+<p></p>
+<label for="estado_civil"><strong>Estado civil : </strong></label>
+{{ Beneficiado.get_estado_civil_display }}
+<p></p>
+<label for="fecha_nacimiento"><strong>Fecha de nacimiento : </strong></label>
+{{ Beneficiado.fecha_nacimiento }}
+<p></p>
+<label for="direccion"><strong>Dirección : </strong></label>
+{{ Beneficiado.direccion }}
+<p></p>
+<label for="celular"><strong>Celular : </strong></label>
+{{ Beneficiado.celular }}
+<p></p>
+<label for="telefono"><strong>Teléfono : </strong></label>
+{{ Beneficiado.telefono }}
+<p></p>
+<label for="email"><strong>Email : </strong></label>
+{{ Beneficiado.email }}
+<p></p>
+<label for="sector"><strong>Sector : </strong></label>
+{{ Beneficiado.sector }}
+<p></p>
+<label for="familiares"><strong>Cantidad de familiares : </strong></label>
+{{ Beneficiado.familiares }}
+<p></p>
+<label for="ingreso"><strong>Ingreso familiar : </strong></label>
+{{ Beneficiado.get_ingreso_display }}
+<p></p>
+<label for="esudio"><strong>Nivel de estudio : </strong></label>
+{{ Beneficiado.get_estudio_display }}
+<p></p>
+<label for=""><strong>Tipo de vivienda : </strong></label>
+{{ Beneficiado.get_vivienda_display }}
+<p></p>
+<label for="tenencia"><strong>Tenencia de la vivienda : </strong></label>
+{{ Beneficiado.get_tenencia_display }}
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block sidebar %}
+<ul class="nav nav-sidebar">
+  <li class="active"><a href="{% url 'base:home' %}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard<span class="sr-only">(current)</span></a></li>
+</ul>
+<ul class="nav nav-sidebar">
+   <li><a href="{% url 'base:BeneficiadoList' %}"><span class="glyphicon glyphicon-user"></span> Beneficiados</a></li>
+   <li><a href="{% url 'base:AsignarCajaList' %}"> Asignar Caja</a></li>
+   <li><a href="{% url 'base:AsignarCursoList' %}"> Asignar Curso</a></li>
+   <li><a href="{% url 'base:HistoricoEntregaList' %}"> Entrega de Cajas</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="{% url 'base:CajaList' %}"><span class="glyphicon glyphicon-inbox"></span> Cajas</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="{% url 'base:CursoList' %}"><span class="glyphicon glyphicon-education"></span> Cursos</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="{% url 'base:SectorList' %}"><span class="glyphicon glyphicon-road"></span> Sectores</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+<h1 class="page-header">Dashboard</h1>
+      <div class="row placeholders">
+        <div class="col-xs-6 col-md-6"><canvas id="Chart_sector"></canvas></div>
+        <div class="col-xs-6 col-md-6"><canvas id="Chart_cursos"></canvas></div>
+        <div class="col-xs-6 col-md-6"><canvas id="Chart_caja"></canvas></div>
+      </div>
+{% endblock %}
+{% block js %}
+var ctx1 = document.getElementById('Chart_sector').getContext('2d');
+var chart_sector = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: {{ labels_sector|safe }},
+        datasets: [{
+            label: 'Beneficiados por Sector',
+            data: {{ data_sector|safe }},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+var ctx2 = document.getElementById('Chart_cursos').getContext('2d');
+var chart_cursos = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: {{ labels_curso|safe }},
+        datasets: [{
+            label: 'Beneficiados por Cursos',
+            data: {{ data_curso|safe }},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+var ctx3 = document.getElementById('Chart_caja').getContext('2d');
+var chart_caja = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: {{ labels_caja|safe }},
+        datasets: [{
+            label: 'Beneficiados x modelo de caja',
+            data: {{ data_caja|safe }},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+{% endblock %}

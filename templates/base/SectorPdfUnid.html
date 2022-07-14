@@ -1,0 +1,13 @@
+{% extends 'base/base_pdf.html' %}
+{% block page-title %} Módulo : {{ module_title }}{% endblock %}
+{% block content-title %}<h1>Reporte - {{ section_title }}</h1>{% endblock %}
+{% block content %}
+{% for Sector in context_pdf %}
+<label for="id"><strong>ID : </strong></label>
+{{ Sector.id }}
+<p></p>
+<label for="descripcion"><strong>Descripción : </strong></label>
+{{ Sector.descripcion }}
+</div>
+{% endfor %}
+{% endblock %}

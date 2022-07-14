@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block title %}Módulo : {{ module_title }}{% endblock %}
+{% block sidebar %}
+<ul class="nav nav-sidebar">
+  <li><a href="{% url 'base:home' %}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+   <li><a href="{% url 'base:BeneficiadoList' %}"><span class="glyphicon glyphicon-user"></span> Beneficiados<span class="sr-only">(current)</span></a></li>
+   <li><a href="{% url 'base:AsignarCajaList' %}"> Asignar Caja</a></li>
+   <li><a href="{% url 'base:AsignarCursoList' %}"> Asignar Curso</a></li>
+   <li><a href="{% url 'base:HistoricoEntregaList' %}"> Entrega de Cajas</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="{% url 'base:CajaList' %}"><span class="glyphicon glyphicon-inbox"></span> Cajas</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="{% url 'base:CursoList' %}"><span class="glyphicon glyphicon-education"></span> Cursos</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li class="active"><a href="{% url 'base:SectorList' %}"><span class="glyphicon glyphicon-road"></span> Sectores</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+<h2 class="page-header">{{ section_title }}</h2>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"></div>
+{% if messages %}
+<ul>
+   {% for message in messages %}
+      <div class="alert alert-success" role="alert"><strong>{{ message }}</strong></div>
+   {% endfor %}
+</ul>
+{% endif %}
+<button class="btn btn-sm btn-default" onclick="return open_modal('{% url 'base:SectorCreate' %}')" title="Crear Nuevo"><span class="glyphicon glyphicon-plus"></span></button>
+<a class="btn btn-sm btn-default" href="{% url 'base:SectorPdfList' %}" title="Imprimir Listado" ><span class="glyphicon glyphicon-print"></span></a>
+<div class="row placeholders">
+   {% if object_list %}
+   <table id="table" class="display compact" style="width:100%">
+     <thead>
+       <tr>
+         <th> ID </th>
+         <th> DESCRIPCIÓN </th>
+         <th class="text-center"> ACCIONES </th>
+       </tr>
+     </thead>
+     <tbody>
+     {% for Sector in object_list %}
+       <tr>
+         <td>{{ Sector.id }}</td>
+         <td>{{ Sector.descripcion }}</td>
+         <td class="text-center">
+           <form method="POST" action="{% url 'base:SectorDelete' Sector.id %}">
+           {% csrf_token %}
+             <div class="btn-group">
+               <button type="button" class="btn btn-sm btn-success" onclick="return open_modal('{% url 'base:SectorDetail' Sector.id %}')" title="Detalle"><span class="glyphicon glyphicon-eye-open"></span></button>
+               <button type="button" class="btn btn-sm btn-primary" onclick="return open_modal('{% url 'base:SectorUpdate' Sector.id %}')" title="Actualizar"><span class="glyphicon glyphicon-pencil"></span></button>
+               <button type="submit" class="btn btn-sm btn-danger" onclick="return delete_item();" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></button>
+             </div>
+           </form>
+         </td>
+       </tr>
+       {% endfor %}
+     </tbody>
+   </table>
+   {% else %}
+     <h4>No hay registros a mostrar</h4>
+   {% endif %}
+</div>
+{% endblock %}
+{% block extra-js %}<script src="{% static 'js/modal.js' %}"></script>{% endblock %}

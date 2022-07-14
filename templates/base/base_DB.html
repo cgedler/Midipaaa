@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+{% block title %}Home{% endblock %}
+{% block sidebar %}
+<ul class="nav nav-sidebar">
+  <li class="active"><a href="{% url 'base:home' %}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard<span class="sr-only">(current)</span></a></li>
+</ul>
+<ul class="nav nav-sidebar">
+   <li><a href="#"><span class="glyphicon glyphicon-user"></span> Beneficiados</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="#"><span class="glyphicon glyphicon-inbox"></span> Cajas</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="#"><span class="glyphicon glyphicon-education"></span> Cursos</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><a href="#"><span class="glyphicon glyphicon-road"></span> Sectores</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+{% endblock %}

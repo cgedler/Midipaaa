@@ -1,0 +1,66 @@
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Detalle</h4>
+</div>
+<div class="modal-body">
+<label for="id_beneficiado"><strong>Cédula : </strong></label>
+{{ object.id_beneficiado }}
+<p></p>
+<label for="nombres"><strong>Nombres : </strong></label>
+{{ object.primer_nombre }} {{ object.segundo_nombre }}
+<p></p>
+<label for="apellidos"><strong>Apellidos : </strong></label>
+{{ object.primer_apellido }} {{ object.segundo_apellido }}
+<p></p>
+<label for="sexo"><strong>Sexo : </strong></label>
+{{ object.get_sexo_display }}
+<p></p>
+<label for="nacionalidad"><strong>Nacionalidad : </strong></label>
+{{ object.get_nacionalidad_display }}
+<p></p>
+<label for="estado_civil"><strong>Estado civil : </strong></label>
+{{ object.get_estado_civil_display }}
+<p></p>
+<label for="fecha_nacimiento"><strong>Fecha de nacimiento : </strong></label>
+{{ object.fecha_nacimiento }}
+<p></p>
+<label for="direccion"><strong>Dirección : </strong></label>
+{{ object.direccion }}
+<p></p>
+<label for="celular"><strong>Celular : </strong></label>
+{{ object.celular }}
+<p></p>
+<label for="telefono"><strong>Teléfono : </strong></label>
+{{ object.telefono }}
+<p></p>
+<label for="email"><strong>Email : </strong></label>
+{{ object.email }}
+<p></p>
+<label for="sector"><strong>Sector : </strong></label>
+{{ object.sector }}
+<p></p>
+<label for="familiares"><strong>Cantidad de familiares : </strong></label>
+{{ object.familiares }}
+<p></p>
+<label for="ingreso"><strong>Ingreso familiar : </strong></label>
+{{ object.get_ingreso_display }}
+<p></p>
+<label for="esudio"><strong>Nivel de estudio : </strong></label>
+{{ object.get_estudio_display }}
+<p></p>
+<label for=""><strong>Tipo de vivienda : </strong></label>
+{{ object.get_vivienda_display }}
+<p></p>
+<label for="tenencia"><strong>Tenencia de la vivienda : </strong></label>
+{{ object.get_tenencia_display }}
+</div>
+<div class="modal-footer">
+<a class="btn btn-sm btn-default" href="{% url 'base:BeneficiadoPdfUnid' object.id_beneficiado %}" title="Imprimir PDF"><span class="glyphicon glyphicon-print"></span></a>
+<a class="btn btn-sm btn-default" href="{% url 'base:BeneficiadoWord' object.id_beneficiado %}" title="Imprimir Word"><span class="glyphicon glyphicon-file"></span></a>
+<a class="btn btn-sm btn-default" href="{% url 'base:BeneficiadoExcel' object.id_beneficiado %}" title="Imprimir Excel"><span class="glyphicon glyphicon-stats"></span></a>
+<button type="button" class="btn btn-default" data-dismiss="modal" title="Salir"><span class="glyphicon glyphicon-remove"></span></button>
+</div>
+</div>
+</div>

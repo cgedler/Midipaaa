@@ -1,0 +1,21 @@
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Detalle</h4>
+</div>
+<div class="modal-body">
+<label for="id"><strong>ID : </strong></label>
+{{ object.id }}
+<p></p>
+<label for="descripcion"><strong>Descripción : </strong></label>
+{{ object.descripcion }}
+</div>
+<div class="modal-footer">
+<a class="btn btn-sm btn-default" href="{% url 'base:SectorPdfUnid' object.id %}" title="Imprimir PDF"><span class="glyphicon glyphicon-print"></span></a>
+<a class="btn btn-sm btn-default" href="{% url 'base:SectorWord' object.id %}" title="Imprimir Word"><span class="glyphicon glyphicon-file"></span></a>
+<a class="btn btn-sm btn-default" href="{% url 'base:SectorExcel' object.id %}" title="Imprimir Excel"><span class="glyphicon glyphicon-stats"></span></a>
+<button type="button" class="btn btn-default" data-dismiss="modal" title="Salir"><span class="glyphicon glyphicon-remove"></span></button>
+</div>
+</div>
+</div>
