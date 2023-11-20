@@ -1,21 +1,30 @@
-# midipaaa
-Proyecto Familia Midipaaa
+# Midipaaa
+Midipaaa Family Project
 
-El proyecto consto en el desarrollo de un sistema web para la organización “Familia Midipaaa”.
-El sistema web automatiza y controla los procesos de la organización “Familia Midipaaa”, mediante
-el uso de herramientas tecnológicas que están basadas en Software Libre.
+The project consisted of the development of a web system for the organization “Familia Midipaaa”. The web system automates and controls the processes of the “Familia Midipaaa” organization, through the use of technological tools that are based on Free Software. The web system was developed from scratch. The system has several modules:
 
-El sistema web se desarrollo desde cero.
+* Module for registering users of the web system who are the administrative staff of the organization.
+* Module for registering the data of the beneficiaries and registering their necessary data as family burden
+* Module for registering the different types of charity aid food box models.
+* Module control for the list of activities carried out and to be carried out.
+* Module reporting to: display the information of the beneficiaries and their family data.
+* Display the information as the total number of benefited families.
+* Display the information on the total number of sectors where the distribution is made.
+* View the information on the list of food box models.
+* View the information on the total number of food boxes to be distributed.
+* Display a page where the organization's information is displayed and a page with contact information.
 
-El sistema web utiliza una base de datos donde se almacenara toda la información que el mismo requiera.
-El sistema web cuenta con funcionalidades en distintos módulos como: 
-* módulo para el registro de usuarios del sistema web que son el personal administrativo de la organización.
-* módulo para el registro de los datos de las personas beneficiadas y registro de sus datos necesarios como carga familiar
-* módulo para el registro de los distintos tipos de modelos de cajas alimentarias de ayuda benéfica.
-* módulo de control de la lista de actividades realizadas y por realizar.
-* módulo de reportes para: visualizar la información de las personas beneficiadas y sus datos familiares.
-* visualizar la información como el total de las familias beneficiadas.
-* visualizar la información del total de sectores donde se hace la distribución.
-* visualizar la información del listado de los modelos de cajas alimentarias.
-* visualizar la información del total de las cajas alimentarias a distribuir.
-* visualizar una pagina donde se muestra la información de la organización y una pagina con información de contacto.
+This system was developed with Python-Django, PorstgreSQL was used for data persistence
+
+# Screenshots
+![page1](docs/images/1.png)
+![page2](docs/images/2.png)
+![page3](docs/images/3.png)
+![page4](docs/images/4.png)
+![page5](docs/images/5.png)
+![page6](docs/images/6.png)
+![page7](docs/images/7.png)
+![page8](docs/images/8.png)
+![page9](docs/images/9.png)
+![page10](docs/images/10.png)
+![page10](docs/images/11.png)
