@@ -28,3 +28,4 @@ This system was developed with Python-Django, PorstgreSQL was used for data pers
 ![page9](docs/images/9.png)
 ![page10](docs/images/10.png)
 ![page10](docs/images/11.png)
+![page10](docs/images/12.png)
